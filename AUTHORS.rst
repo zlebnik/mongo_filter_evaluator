@@ -5,6 +5,7 @@ Credits
 Development Lead
 ----------------
 
+* Andrey Chiganov <ch@popmechanic.io>
 * Gleb Kovalev <gleb@popmechanic.io>
 
 Contributors

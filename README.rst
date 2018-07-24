@@ -6,15 +6,6 @@ Mongo Filter Evaluator
 .. image:: https://img.shields.io/pypi/v/mongo_filter_evaluator.svg
         :target: https://pypi.python.org/pypi/mongo_filter_evaluator
 
-.. image:: https://img.shields.io/travis/zlebnik/mongo_filter_evaluator.svg
-        :target: https://travis-ci.org/zlebnik/mongo_filter_evaluator
-
-.. image:: https://readthedocs.org/projects/mongo-filter-evaluator/badge/?version=latest
-        :target: https://mongo-filter-evaluator.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-
-
 
 Evaluator & validator for mongo-like queries
 
@@ -26,7 +17,31 @@ Evaluator & validator for mongo-like queries
 Features
 --------
 
-* TODO
+* Evaluate mongo-like queries in Python:
+
+.. code-block:: python
+
+    DataConditionEvaluator({
+        'value': 'value',
+        'int': {'$lte': 2}
+    }, {
+        'value': 'value',
+        'int': 1
+    }).evaluate()
+
+
+* Validate typed mongo-like queries:
+
+.. code-block:: python
+
+    errors = ConditionValidator({
+        'value': 'value',
+        'int': {'$lte': 1}
+    }, {
+        'value': StringField,
+        'int': NumericField
+    }).validate()
+
 
 Credits
 -------
