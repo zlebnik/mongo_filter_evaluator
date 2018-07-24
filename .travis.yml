@@ -1,16 +1,18 @@
-# Config file for automatic testing at travis-ci.org
-
 language: python
 python:
-  - 3.6
-  - 3.5
-  - 3.4
-  - 2.7
-
-# Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+- 3.6
+- 3.5
+- 3.4
+- 2.7
 install: pip install -U tox-travis
-
-# Command to run tests, e.g. python setup.py test
 script: tox
-
-
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: zlebnik
+  password:
+    secure: uIg8yoGO+q5/iwIoGetulXKB3XFY4db6cOh512VsYDVPEbxPUJqNgJ0NCmfx92b50J9xb5CNnfbGLMcaxVni2wXqHVTKZDpg+MuMw/k/sXouZtmD1zOLjv7/k9xhI3h8GTBhy89jhw3092OKJ+qvuKcPBY19EHYGfSjmU+zx7d3LNT2+xZ3hp4+FtzX4eJDkEgCqnm+IbsNHA/cdpjxUVeleE2CH4rOI79PY5q8VSsCZ5lxoOISwR+kx38T6ukNbtUqXFO7Rcg2C2IucM/DKu6gxjirxWlmNp6S7nycMuZ1lnOGKEgE/63hxrSrLjXTF8P+aMG3hzBfmDX2f3Lf0pCv+iNqmzFpgCBCCOhnDn8aXPd2wQPrz1/KFvLjxsp+wcQ8QhR97D5EJ1ZmQobcStsm6EFnim9+qUdgTZ00gXhEBfPZBvK1kYuXjjP0P9akxgiC2cJRO0hmVTzl6soPVF+MOTfTuOIidCc3HwvSVuOt9zDKAqHFN611gTAUOG1r6aTaCne4nD2yM15ZQ3N6e1obtxxjrKrdgKDflWHfRhYEe7/y1s/Lcfng+g0oOCN+vM4CGf+mtXy+8/7UTf4yHskUEQyifOy644BEQFCNJbJKDcECffjrgcFAm82ZqdoPPl9aJ+2ZGXYz/IlM+gWbxq+0hxtg+3E3UAbjI6OY+CME=
+  on:
+    tags: true
+    repo: zlebnik/mongo_filter_evaluator
+    python: 2.7
