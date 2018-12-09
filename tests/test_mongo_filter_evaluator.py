@@ -30,6 +30,20 @@ def test_validate():
     }).validate()) == 2
 
 
+def test_evaluate_emptyfilter():
+    assert DataConditionEvaluator(
+        {
+            "$and": [
+               {'value': 'value'},
+               {}
+            ]
+        },
+        {
+            'value': 'value',
+            'int': 1
+        }
+    ).evaluate()
+
 def test_evaluate():
     assert DataConditionEvaluator(
         {

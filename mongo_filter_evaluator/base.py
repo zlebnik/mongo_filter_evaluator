@@ -23,7 +23,7 @@ class BaseConditionEvaluator(object):
         raise NotImplementedError('Error :(')
 
     def evaluate(self, condition=None):
-        condition = condition if condition else self.condition
+        condition = condition if condition is not None else self.condition
         return self.evaluate_logic('$and', condition)
 
     def evaluate_condition(self, keyword, body):
